@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './BuildCOntrol.module.css';
+import classes from './BuildControl.module.css';
 
 const buildControl = ( props ) => {
     return (
