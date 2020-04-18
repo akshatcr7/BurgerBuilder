@@ -94,6 +94,7 @@ class ContactData extends Component {
           ],
         },
         value: "",
+        validation: {},
         valid: false
       },
     },
