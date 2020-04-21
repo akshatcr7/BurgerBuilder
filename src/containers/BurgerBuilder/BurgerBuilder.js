@@ -4,27 +4,15 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
-import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import axios from '../../axios-orders';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import { connect } from 'react-redux';
 import * as burgerBuilderActions from '../../store/actions/index';
 
 class BurgerBuilder extends Component {
     state = {
-        purchasing: false,
-        loading: false,
-        error: false
-    }
-
-    componentWillMount () {
-        axios.get('/ingredients.json')
-        .then(response => {
-            this.setState({ingredients: response.data});
-        })
-        .catch(error => {
-            this.setState({error: error.message});
-        });
+        purchasing: false
     }
 
     updatePurchaseState (ingredients) {
@@ -81,10 +69,6 @@ class BurgerBuilder extends Component {
                             price={this.props.price}
                             ingredients={this.props.ing}/>;
 
-        }
-
-        if(this.state.loading) {
-            orderSummary = <Spinner />;
         }
 
         return (
